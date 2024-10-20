@@ -1,0 +1,19 @@
+.city-details {
+    padding: 20px;
+    text-align: left;
+ }
+ 
+ .city-details ul {
+    list-style-type: none;
+    padding: 0;
+ }
+ 
+ .city-details li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ }
+ 
