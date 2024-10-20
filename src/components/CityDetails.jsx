@@ -30,7 +30,6 @@ const CityDetails = () => {
 
             filteredData.sort((a, b) => b.time.localeCompare(a.time));
 
-            // Update the state with the new data
             setTemperatureData(prevData => [...prevData, ...filteredData]);
         } catch (error) {
             console.error("Error fetching temperature data:", error);
@@ -40,12 +39,9 @@ const CityDetails = () => {
     };
 
     useEffect(() => {
-        fetchTemperatureData(); // Fetch immediately on mount
+        fetchTemperatureData();
 
-        // Set interval for every 30 minutes
         const intervalId = setInterval(fetchTemperatureData, 30 * 60 * 1000);
-
-        // Clear interval on unmount
         return () => clearInterval(intervalId);
     }, [city]);
 
