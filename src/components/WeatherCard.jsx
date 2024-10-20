@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './WeatherCard.css';
 import clear from '../assets/clear.png';
 import clouds from '../assets/clouds.png';
 import drizzle from '../assets/drizzle.png';
@@ -10,11 +9,12 @@ import snow from '../assets/snow.png';
 import wind from '../assets/wind.png';
 import mist from '../assets/mist.png';
 import humidity from '../assets/humidity.png';
+import './WeatherCard.css';
 
 const WeatherCard = ({ city }) => {
     const [weatherData, setWeatherData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [weatherType, setWeatherType] = useState("../assets/default.png"); // Default image
+    const [weatherType, setWeatherType] = useState("../assets/default.png");
     const apiKey = "c0dff8a115ca553b49eaf8805bf73f1d";
 
     const weatherConditionsMap = [
@@ -37,7 +37,7 @@ const WeatherCard = ({ city }) => {
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
             );
             const data = response.data;
-            const tempCelsius = (data.main.temp - 273.15).toFixed(2); // Convert to Celsius
+            const tempCelsius = (data.main.temp - 273.15).toFixed(2);
             setWeatherData({
                 city: data.name,
                 temp: tempCelsius,
@@ -54,7 +54,7 @@ const WeatherCard = ({ city }) => {
 
     useEffect(() => {
         fetchWeatherData();
-        const interval = setInterval(fetchWeatherData, 30 * 60 * 1000); // Update every 30 minutes
+        const interval = setInterval(fetchWeatherData, 30 * 60 * 1000);
         return () => clearInterval(interval);
     }, [city]);
 
@@ -77,7 +77,6 @@ const WeatherCard = ({ city }) => {
                 <img src={weatherType} className="weather-icon" alt="No Weather Icon" />
                 <div className="text">
                     <h2>{city}</h2>
-                    {/* <p>{weatherData.condition}</p> */}
                 </div>
             </div>
             <div className="right">
