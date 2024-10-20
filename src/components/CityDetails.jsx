@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import "./CityDetails.css";
+import Loader from './Loader';
 
 const CityDetails = () => {
     const { city } = useParams();
@@ -45,7 +46,7 @@ const CityDetails = () => {
         return () => clearInterval(intervalId);
     }, [city]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div><Loader /></div>;
 
     return (
         <div className="city-details">

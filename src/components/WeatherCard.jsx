@@ -10,6 +10,7 @@ import wind from '../assets/wind.png';
 import mist from '../assets/mist.png';
 import humidity from '../assets/humidity.png';
 import './WeatherCard.css';
+import Loader from './Loader';
 
 const WeatherCard = ({ city }) => {
     const [weatherData, setWeatherData] = useState(null);
@@ -69,7 +70,7 @@ const WeatherCard = ({ city }) => {
         }
     }, [weatherData]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div><Loader /></div>;
 
     return (
         <div className="weather-card">
