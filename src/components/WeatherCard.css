@@ -4,13 +4,19 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-width: 320px;
+    width: 350px;
     height: 350px;
     color: white;
     border-radius: 10px;
     box-shadow: rgba(241, 238, 240, 0.4) 5px 5px, rgba(231, 223, 228, 0.3) 10px 10px, rgba(213, 187, 203, 0.2) 15px 15px, rgba(215, 178, 202, 0.1) 20px 20px, rgba(217, 173, 201, 0.05) 25px 25px;
     background-color: #6e6f7a33;
     text-decoration: none;
+    transition: transform 0.2s;
+    padding-right: 15px;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
 }
 
 .left {
@@ -36,4 +42,8 @@
 
 .text {
     padding: -150px;
+}
+
+.weather-icon{
+    height: 150px;
 }
